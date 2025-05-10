@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Membresía - MultiEspacio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',    /* Azul oscuro */
+                        secondary: '#F97316',  /* Naranja */
+                        primaryLight: '#3B82F6', /* Azul más claro */
+                        secondaryLight: '#FDBA74', /* Naranja más claro */
+                        gradient: {
+                            start: '#1E3A8A',
+                            mid: '#3B82F6',
+                            end: '#F97316'
+                        },
+                        light: '#F0F9FF',
+                        dark: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
+                        'gradient-secondary': 'linear-gradient(135deg, #F97316 0%, #FDBA74 100%)',
+                        'gradient-blend': 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #F97316 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="font-sans text-dark bg-light">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-serif font-bold text-primary">MultiEspacio</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-dark hover:text-primary font-medium">Inicio</a>
+                    <a href="espacios.html" class="text-dark hover:text-primary font-medium">Espacios</a>
+                    <a href="servicios.html" class="text-dark hover:text-primary font-medium">Servicios</a>
+                    <a href="membresia.html" class="text-dark hover:text-primary font-medium font-bold border-b-2 border-primary">Membresía</a>
+                    <a href="ubicacion.html" class="text-dark hover:text-primary font-medium">Ubicación</a>
+                    <a href="contacto.html" class="text-dark hover:text-primary font-medium">Contacto</a>
+                </div>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button id="mobile-menu-button" class="md:hidden text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-dark hover:text-primary font-medium">Inicio</a>
+                    <a href="espacios.html" class="text-dark hover:text-primary font-medium">Espacios</a>
+                    <a href="servicios.html" class="text-dark hover:text-primary font-medium">Servicios</a>
+                    <a href="membresia.html" class="text-dark hover:text-primary font-medium font-bold">Membresía</a>
+                    <a href="ubicacion.html" class="text-dark hover:text-primary font-medium">Ubicación</a>
+                    <a href="contacto.html" class="text-dark hover:text-primary font-medium">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="relative pt-32 pb-20 bg-gradient-blend">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl font-serif font-bold mb-6">Programa de Membresía</h1>
+            <p class="text-xl max-w-3xl mx-auto">Más allá de vender productos, creamos un vínculo duradero con tus clientes.</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Un Vínculo, No Solo Una Venta</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-12">Nuestro programa de membresía está diseñado para fomentar la lealtad, aumentar las visitas repetidas y crear una comunidad alrededor de tu marca.</p>
+            
+            <div class="bg-light p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
+                <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-id-card text-4xl text-primary"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-primary mb-4">Beneficios para Todos</h3>
+                <p class="text-gray-600 mb-6">El programa de membresía beneficia tanto a las marcas como a los visitantes, creando un ecosistema de valor compartido que fomenta el crecimiento y la fidelidad.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                    <div>
+                        <h4 class="font-bold text-primary mb-2">Para las Marcas:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>Mayor frecuencia de visitas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>Aumento del ticket promedio</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>Recomendaciones orgánicas</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-primary mb-2">Para los Visitantes:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>Acceso a beneficios exclusivos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>Experiencias personalizadas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                                <span>Sentido de pertenencia</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Benefits -->
+    <section class="py-20 bg-gradient-blend text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-white mb-4">Beneficios Exclusivos</h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-8"></div>
+                <p class="text-xl text-white/90 max-w-4xl mx-auto">Nuestro programa ofrece una amplia gama de beneficios diseñados para crear experiencias memorables.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-white/20 p-8 rounded-lg shadow-lg backdrop-blur-sm border border-white/30 hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center transform hover:bg-white/30">
+                    <div class="bg-gradient-to-br from-primary to-secondary p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-percentage text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Descuentos Exclusivos</h3>
+                    <p class="text-white/80">Acceso a descuentos especiales en productos y servicios de todas las marcas participantes.</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="bg-white/20 p-8 rounded-lg shadow-lg backdrop-blur-sm border border-white/30 hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center transform hover:bg-white/30">
+                    <div class="bg-gradient-to-br from-primary to-secondary p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-ticket-alt text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Acceso VIP</h3>
+                    <p class="text-white/80">Entrada preferencial a eventos, degustaciones y lanzamientos exclusivos organizados en el centro.</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="bg-white/20 p-8 rounded-lg shadow-lg backdrop-blur-sm border border-white/30 hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center transform hover:bg-white/30">
+                    <div class="bg-gradient-to-br from-primary to-secondary p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-gift text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Recompensas & Sorpresas</h3>
+                    <p class="text-white/80">Sistema de recompensas basado en el nivel de consumo, con sorpresas personalizadas para los miembros.</p>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="bg-white/20 p-8 rounded-lg shadow-lg backdrop-blur-sm border border-white/30 hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center transform hover:bg-white/30">
+                    <div class="bg-gradient-to-br from-primary to-secondary p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-user-friends text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Experiencias Backstage</h3>
+                    <p class="text-white/80">Acceso a experiencias exclusivas detrás de escena y reuniones privadas con creadores y marcas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Levels -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-primary mb-4">Niveles de Membresía</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">Ofrecemos diferentes opciones para adaptarnos a tus intereses y necesidades.</p>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center mb-10">
+                <button class="membership-tab active px-6 py-3 mx-2 mb-4 rounded-full bg-primary text-white font-bold" data-tab="areas">Membresías por Áreas</button>
+                <button class="membership-tab px-6 py-3 mx-2 mb-4 rounded-full bg-gray-200 text-gray-700 font-bold" data-tab="combinadas">Membresías Combinadas</button>
+                <button class="membership-tab px-6 py-3 mx-2 mb-4 rounded-full bg-gray-200 text-gray-700 font-bold" data-tab="temporales">Membresías Temporales</button>
+                <button class="membership-tab px-6 py-3 mx-2 mb-4 rounded-full bg-gray-200 text-gray-700 font-bold" data-tab="operadores">Operadores Turísticos</button>
+            </div>
+            
+            <!-- Tab Content: Membresías por Áreas -->
+            <div id="areas-tab" class="tab-content block">
+                <div class="mb-10">
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-4 border-b border-gray-200 pb-2">Área Gastronómica</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Cultura al Plato -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gradient-to-br from-primary/20 to-secondary/20 p-3 rounded-full mr-4 shadow-md">
+                                    <i class="fas fa-utensils text-2xl text-primary"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-primary">Membresía "Cultura al Plato"</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">Una experiencia gastronómica completa para los amantes de la buena comida.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Acceso a eventos de cocina en vivo</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Degustaciones mensuales exclusivas</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Descuentos en restaurantes del MultiEspacio</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Prioridad en reservas</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Cata Selecta -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gradient-to-br from-primary/20 to-secondary/20 p-3 rounded-full mr-4 shadow-md">
+                                    <i class="fas fa-wine-glass-alt text-2xl text-primary"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-primary">Membresía "Cata Selecta"</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">Especializada para los conocedores y entusiastas de vinos y bebidas premium.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">2 catas por mes con sommelier profesional</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Acceso prioritario al alquiler de la sala de catas</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Descuentos en eventos de enología</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Eventos especiales de café y destilados</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-10">
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-4 border-b border-gray-200 pb-2">Área Deportiva y Bienestar</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Vital -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gradient-to-br from-primary/20 to-secondary/20 p-3 rounded-full mr-4 shadow-md">
+                                    <i class="fas fa-dumbbell text-2xl text-primary"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-primary">Membresía "Vital"</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">Diseñada para quienes buscan mantener un estilo de vida activo y saludable.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Acceso libre al gimnasio</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Clases grupales (yoga, pilates, funcional)</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">1 sesión mensual con coach de salud</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Zen Junín -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gradient-to-br from-primary/20 to-secondary/20 p-3 rounded-full mr-4 shadow-md">
+                                    <i class="fas fa-spa text-2xl text-primary"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-primary">Membresía "Zen Junín"</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">Enfocada en el bienestar mental y la armonía personal.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Acceso a sesiones de meditación</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Baños sonoros terapéuticos</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Actividades holísticas especiales</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-10">
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-4 border-b border-gray-200 pb-2">Área Cultural y Educativa</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Cultura Viva -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gradient-to-br from-primary/20 to-secondary/20 p-3 rounded-full mr-4 shadow-md">
+                                    <i class="fas fa-theater-masks text-2xl text-primary"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-primary">Membresía "Cultura Viva"</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">Ideal para los amantes del arte y las expresiones culturales.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Entrada libre a ciclos de teatro independiente</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Acceso a audiciones y lecturas</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Participación en debates culturales</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Acceso a talleres culturales</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Estudiante Cultural -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gradient-to-br from-primary/20 to-secondary/20 p-3 rounded-full mr-4 shadow-md">
+                                    <i class="fas fa-graduation-cap text-2xl text-primary"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-primary">Membresía "Estudiante Cultural"</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">Versión económica para estudiantes universitarios.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Mismos beneficios que Cultura Viva</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Precios especiales con credencial universitaria</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Espacios de estudio adicionales</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-10">
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-4 border-b border-gray-200 pb-2">Área de Negocios y Coworking</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Cowork Diario -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gradient-to-br from-primary/20 to-secondary/20 p-3 rounded-full mr-4 shadow-md">
+                                    <i class="fas fa-laptop text-2xl text-primary"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-primary">Membresía "Cowork Diario"</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">Para profesionales que necesitan un espacio de trabajo flexible.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Acceso por día a zonas comunes</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Café y bebidas incluidas</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Lockers para almacenamiento</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Oficina Flex -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gradient-to-br from-primary/20 to-secondary/20 p-3 rounded-full mr-4 shadow-md">
+                                    <i class="fas fa-briefcase text-2xl text-primary"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-primary">Membresía "Oficina Flex"</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">La combinación perfecta entre flexibilidad y profesionalismo.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">10 días de uso al mes de oficina equipada</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">2 horas mensuales de sala de reuniones</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Servicio de impresión básico incluido</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Empresa Residente -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="flex items-center mb-4">
+                                <div class="bg-gradient-to-br from-primary/20 to-secondary/20 p-3 rounded-full mr-4 shadow-md">
+                                    <i class="fas fa-building text-2xl text-primary"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-primary">Membresía "Empresa Residente"</h4>
+                            </div>
+                            <p class="text-gray-600 mb-4">La solución integral para empresas que buscan una sede permanente.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Oficina permanente exclusiva</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Logo en el hall de entrada</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Acceso a eventos empresariales</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Oportunidades de networking</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Descuentos especiales en gastronomía</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content: Membresías Combinadas -->
+            <div id="combinadas-tab" class="tab-content hidden">
+                <div class="mb-10">
+                    <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8 text-center">Nuestras opciones combinadas ofrecen mayores beneficios y una experiencia integral en múltiples áreas.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Combo Bienestar + Gastronomía -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden border border-primary/20 hover:border-primary/50">
+                            <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-primary to-secondary"></div>
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="pl-2">
+                                <h4 class="text-xl font-bold text-primary mb-3 flex items-center">
+                                    <span class="bg-gradient-to-r from-primary/20 to-secondary/20 p-2 rounded-full mr-3 shadow-sm inline-flex items-center justify-center">
+                                        <i class="fas fa-heartbeat text-primary"></i>
+                                    </span>
+                                    Combo Bienestar + Gastronomía
+                                </h4>
+                                <p class="text-gray-600 mb-4">La combinación perfecta entre salud y placer gastronómico.</p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Acceso libre a gimnasio y clases</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">2 cenas al mes con menú saludable</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Asesoramiento nutricional básico</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cultura + Cowork -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden border border-primary/20 hover:border-primary/50">
+                            <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-primary to-secondary"></div>
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="pl-2">
+                                <h4 class="text-xl font-bold text-primary mb-3 flex items-center">
+                                    <span class="bg-gradient-to-r from-primary/20 to-secondary/20 p-2 rounded-full mr-3 shadow-sm inline-flex items-center justify-center">
+                                        <i class="fas fa-theater-masks text-primary"></i>
+                                    </span>
+                                    Cultura + Cowork
+                                </h4>
+                                <p class="text-gray-600 mb-4">Para profesionales creativos que buscan inspiración y productividad.</p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Espacio de trabajo 10 días al mes</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Entradas libres a eventos culturales</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Descuentos en cafetería</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Full Estudiante -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden border border-primary/20 hover:border-primary/50">
+                            <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-primary to-secondary"></div>
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="pl-2">
+                                <h4 class="text-xl font-bold text-primary mb-3 flex items-center">
+                                    <span class="bg-gradient-to-r from-primary/20 to-secondary/20 p-2 rounded-full mr-3 shadow-sm inline-flex items-center justify-center">
+                                        <i class="fas fa-graduation-cap text-primary"></i>
+                                    </span>
+                                    Full Estudiante
+                                </h4>
+                                <p class="text-gray-600 mb-4">La opción más completa para estudiantes a un precio accesible.</p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Coworking diario ilimitado</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Talleres culturales gratuitos</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Descuentos en tiendas (deco, indumentaria)</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Descuentos en supermercado</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Plan Ejecutivo Mensual -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden border border-secondary/20 hover:border-secondary/50">
+                            <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-secondary to-primary"></div>
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="pl-2">
+                                <h4 class="text-xl font-bold text-primary mb-3 flex items-center">
+                                    <span class="bg-gradient-to-r from-secondary/20 to-primary/20 p-2 rounded-full mr-3 shadow-sm inline-flex items-center justify-center">
+                                        <i class="fas fa-briefcase text-secondary"></i>
+                                    </span>
+                                    Plan Ejecutivo Mensual
+                                </h4>
+                                <p class="text-gray-600 mb-4">Diseñado para profesionales que valoran el confort y la exclusividad.</p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Oficina equipada premium</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">1 cata mensual exclusiva</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">1 cena ejecutiva mensual</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Acceso a gimnasio y ducha premium</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <a href="contacto.html" class="inline-block bg-gradient-to-r from-secondary to-secondary/90 hover:from-secondary/90 hover:to-primary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Familia Integral -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden border border-secondary/20 hover:border-secondary/50">
+                            <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-secondary to-primary"></div>
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary/5 to-transparent -z-10 rounded-bl-full"></div>
+                            <div class="pl-2">
+                                <h4 class="text-xl font-bold text-primary mb-3 flex items-center">
+                                    <span class="bg-gradient-to-r from-secondary/20 to-primary/20 p-2 rounded-full mr-3 shadow-sm inline-flex items-center justify-center">
+                                        <i class="fas fa-users text-secondary"></i>
+                                    </span>
+                                    Familia Integral
+                                </h4>
+                                <p class="text-gray-600 mb-4">La membresía ideal para que toda la familia disfrute del MultiEspacio.</p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Acceso para miembros del grupo familiar</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Actividades deportivas para todas las edades</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Experiencias culturales familiares</span>
+                                    </li>
+                                    <li class="flex items-start group">
+                                        <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                        <span class="text-gray-700">Descuentos en compras y gastronomía</span>
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <a href="contacto.html" class="inline-block bg-gradient-to-r from-secondary to-secondary/90 hover:from-secondary/90 hover:to-primary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content: Membresías Temporales -->
+            <div id="temporales-tab" class="tab-content hidden" data-section="membresias-temporales">
+                <div class="mb-10">
+                    <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8 text-center">Opciones flexibles que se adaptan a diferentes duraciones según tus necesidades.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Diaria -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50 -z-10"></div>
+                            <div class="bg-gradient-to-br from-primary/20 to-primary/10 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md transform hover:scale-105 transition-transform duration-300">
+                                <i class="fas fa-calendar-day text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary mb-3 text-center">Diaria</h4>
+                            <p class="text-gray-600 mb-4 text-center">Ideal para turistas o trabajadores en tránsito.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Acceso a coworking por día</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Pase diario a instalaciones deportivas</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Entrada a eventos culturales del día</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Mensual -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-primary/10 hover:shadow-2xl hover:scale-102 hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50 -z-10"></div>
+                            <div class="bg-gradient-to-br from-primary/20 to-primary/10 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md transform hover:scale-105 transition-transform duration-300">
+                                <i class="fas fa-calendar-alt text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary mb-3 text-center">Mensual</h4>
+                            <p class="text-gray-600 mb-4 text-center">Todas las membresías básicas en versión mensual.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Sin compromiso de permanencia</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Flexibilidad para cambiar de plan</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Beneficios completos durante el mes</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Anual -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-secondary/20 hover:shadow-2xl hover:scale-102 hover:border-secondary/50 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent opacity-50 -z-10"></div>
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-secondary/20 to-transparent -z-10 rounded-bl-full"></div>
+                            <!-- Etiqueta Recomendado -->
+                            <div class="ribbon">
+                                <span class="bg-secondary text-white font-bold px-4 py-1 shadow-md border border-white/30">RECOMENDADO</span>
+                            </div>
+                            <style>
+                                .ribbon {
+                                    width: 150px;
+                                    height: 150px;
+                                    overflow: hidden;
+                                    position: absolute;
+                                    top: -10px;
+                                    right: -10px;
+                                    z-index: 10;
+                                }
+                                .ribbon span {
+                                    position: absolute;
+                                    display: block;
+                                    width: 225px;
+                                    padding: 8px 0;
+                                    background-color: #ff7e00;
+                                    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+                                    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+                                    text-align: center;
+                                    font-size: 14px;
+                                    right: -25px;
+                                    top: 30px;
+                                    transform: rotate(45deg);
+                                }
+                            </style>
+                            <div class="bg-gradient-to-br from-secondary/30 to-secondary/10 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md transform hover:scale-105 transition-transform duration-300">
+                                <i class="fas fa-calendar-check text-2xl text-secondary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary mb-3 text-center">Anual</h4>
+                            <p class="text-gray-600 mb-4 text-center">Precio promocional por fidelización con beneficios exclusivos.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Descuento importante sobre precio mensual</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Posibilidad de congelar 1 mes por vacaciones</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Regalos exclusivos trimestrales</span>
+                                </li>
+                                <li class="flex items-start group">
+                                    <i class="fas fa-check-circle text-secondary mt-1 mr-3 group-hover:scale-110 transition-transform duration-200"></i>
+                                    <span class="text-gray-700">Invitaciones a eventos privados</span>
+                                </li>
+                            </ul>
+                            <div class="text-center">
+                                <a href="contacto.html" class="inline-block bg-gradient-to-r from-secondary to-secondary/90 hover:from-secondary/90 hover:to-primary/90 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Solicitar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content: Operadores Turísticos -->
+            <div id="operadores-tab" class="tab-content hidden">
+                <div class="mb-10">
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-4 text-center">Experiencia Centro Junín: Cultura, Bienestar y Sabores en un Solo Lugar</h3>
+                    <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8 text-center">Una propuesta integral para operadores turísticos que desean ofrecer experiencias únicas a sus clientes.</p>
+                    
+                    <div class="bg-gray-50 p-8 rounded-lg mb-10">
+                        <h4 class="text-xl font-bold text-primary mb-4">La experiencia incluye:</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="bg-white p-5 rounded-lg shadow-md">
+                                <div class="flex items-center mb-3">
+                                    <div class="bg-primary/10 p-2 rounded-full mr-3">
+                                        <i class="fas fa-running text-xl text-primary"></i>
+                                    </div>
+                                    <h5 class="font-bold text-primary">Actividades deportivas</h5>
+                                </div>
+                                <p class="text-gray-600">(zona A)</p>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-lg shadow-md">
+                                <div class="flex items-center mb-3">
+                                    <div class="bg-primary/10 p-2 rounded-full mr-3">
+                                        <i class="fas fa-hot-tub text-xl text-primary"></i>
+                                    </div>
+                                    <h5 class="font-bold text-primary">Bienestar y spa</h5>
+                                </div>
+                                <p class="text-gray-600">(zona B)</p>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-lg shadow-md">
+                                <div class="flex items-center mb-3">
+                                    <div class="bg-primary/10 p-2 rounded-full mr-3">
+                                        <i class="fas fa-utensils text-xl text-primary"></i>
+                                    </div>
+                                    <h5 class="font-bold text-primary">Gastronomía multicultural</h5>
+                                </div>
+                                <p class="text-gray-600">(zona C)</p>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-lg shadow-md">
+                                <div class="flex items-center mb-3">
+                                    <div class="bg-primary/10 p-2 rounded-full mr-3">
+                                        <i class="fas fa-laptop text-xl text-primary"></i>
+                                    </div>
+                                    <h5 class="font-bold text-primary">Cultura y coworking</h5>
+                                </div>
+                                <p class="text-gray-600">(zona D)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-xl font-bold text-primary mb-4 text-center">El producto puede subclasificarse por:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 text-center">
+                            <div class="bg-primary/10 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-umbrella-beach text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary mb-3">Escapadas de fin de semana</h4>
+                            <p class="text-gray-600">Paquetes completos de experiencias para disfrutar durante el fin de semana en el MultiEspacio.</p>
+                            <div class="mt-4">
+                                <a href="contacto.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-2 px-6 rounded-full transition duration-300">Solicitar información</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 text-center">
+                            <div class="bg-primary/10 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-handshake text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary mb-3">Turismo de reuniones y bienestar</h4>
+                            <p class="text-gray-600">Propuestas para grupos corporativos que combinan espacios de trabajo con actividades de bienestar.</p>
+                            <div class="mt-4">
+                                <a href="contacto.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-2 px-6 rounded-full transition duration-300">Solicitar información</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 text-center">
+                            <div class="bg-primary/10 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-book-open text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-primary mb-3">Turismo educativo y cultural</h4>
+                            <p class="text-gray-600">Experiencias enfocadas en el aprendizaje y la inmersión cultural para grupos educativos.</p>
+                            <div class="mt-4">
+                                <a href="contacto.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-2 px-6 rounded-full transition duration-300">Solicitar información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-primary mb-4">Lo Que Dicen Nuestros Miembros</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">Descubre las experiencias de quienes ya disfrutan de nuestras diferentes membresías.</p>
+            </div>
+            
+            <!-- Carousel Container -->
+            <div class="max-w-5xl mx-auto relative">
+                <!-- Carousel Track -->
+                <div class="testimonial-carousel overflow-hidden">
+                    <div class="testimonial-track flex transition-transform duration-700 ease-in-out">
+                        <!-- Testimonial 1: Gastronomía -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-utensils text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"La membresía 'Cultura al Plato' ha sido un descubrimiento increíble. Las degustaciones mensuales son exquisitas y he aprendido muchísimo en los eventos de cocina en vivo. Además, los descuentos en restaurantes me permiten disfrutar de la gastronomía del MultiEspacio con frecuencia."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Carlos Rodríguez</h4>
+                                            <p class="text-gray-500">Miembro "Cultura al Plato" · 8 meses</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2: Bienestar -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-dumbbell text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"Con la membresía 'Vital' encontré la motivación que necesitaba para mantenerme activa. Las clases grupales son excelentes y la sesión mensual con el coach de salud me ayuda a mantenerme enfocada en mis objetivos. El gimnasio tiene todo lo que necesito y siempre está impecable."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Laura Sánchez</h4>
+                                            <p class="text-gray-500">Miembro "Vital" · 1 año</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3: Cultural -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-theater-masks text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"Como estudiante universitario, la membresía 'Estudiante Cultural' ha sido perfecta para mí. Puedo acceder a todos los eventos culturales a un precio muy accesible, y los espacios de estudio son ideales para cuando necesito concentrarme. Los debates y talleres culturales son realmente enriquecedores."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Martín Gómez</h4>
+                                            <p class="text-gray-500">Miembro "Estudiante Cultural" · 6 meses</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 4: Coworking -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-briefcase text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"La membresía 'Oficina Flex' cambió mi forma de trabajar. Los 10 días mensuales me dan la flexibilidad que necesito, y el ambiente es perfecto para concentrarse. Las salas de reuniones están equipadas con la última tecnología, lo que me permite recibir clientes con total profesionalismo."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Fernando Pérez</h4>
+                                            <p class="text-gray-500">Miembro "Oficina Flex" · 1 año y 2 meses</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 5: Empresa Residente -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-building text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"Trasladar nuestra startup al MultiEspacio fue la mejor decisión que tomamos. La membresía 'Empresa Residente' nos da todo lo que necesitamos: una oficina permanente, visibilidad con nuestro logo en el hall, y las oportunidades de networking han sido invaluables para nuestro crecimiento."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Elena Torres</h4>
+                                            <p class="text-gray-500">CEO, Innovatech · Miembro desde 2024</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 6: Combinada Bienestar+Gastronomía -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-heartbeat text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"El 'Combo Bienestar + Gastronomía' refleja perfectamente mi estilo de vida. Disfruto de las clases de yoga y luego puedo cenar con menús saludables especialmente diseñados. Es una experiencia integral que me permite cuidarme mientras disfruto de la excelente gastronomía."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Sofía Mendoza</h4>
+                                            <p class="text-gray-500">Miembro "Combo Bienestar+Gastronomía" · 9 meses</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 7: Full Estudiante -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-graduation-cap text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"Como estudiante de diseño, la membresía 'Full Estudiante' me ha abierto un mundo de posibilidades. El coworking ilimitado es perfecto para mis proyectos, los talleres culturales me inspiran, y los descuentos en tiendas de decoración me permiten explorar materiales que normalmente no podría permitirme."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Pablo Hernández</h4>
+                                            <p class="text-gray-500">Miembro "Full Estudiante" · 4 meses</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 8: Familia Integral -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-users text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"La membresía 'Familia Integral' es exactamente lo que necesitábamos. Mientras mis hijos disfrutan de actividades deportivas, mi esposa asiste a talleres culturales y yo trabajo en el espacio de coworking. Los fines de semana venimos todos juntos a disfrutar de la gastronomía. Es nuestro segundo hogar."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Roberto Álvarez</h4>
+                                            <p class="text-gray-500">Familia de 4 · Miembros desde hace 1 año</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 9: Mensual -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-calendar-alt text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"Comencé con una membresía mensual para probar, sin compromiso. La flexibilidad me encantó porque pude cambiar entre diferentes tipos de membresías hasta encontrar la que mejor se adaptaba a mis necesidades. El servicio al cliente es excelente y siempre están dispuestos a asesorar."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Diana Jiménez</h4>
+                                            <p class="text-gray-500">Miembro mensual · 3 meses consecutivos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 10: Anual -->
+                        <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                    <div class="w-24 h-24 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        <i class="fas fa-calendar-check text-3xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex text-secondary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="text-gray-600 italic mb-4">"Opté por la membresía anual por el ahorro significativo, y ha sido una gran inversión. Los beneficios adicionales como las invitaciones a eventos privados y los regalos trimestrales son un detalle muy especial. La posibilidad de congelar un mes durante mis vacaciones es muy conveniente."</p>
+                                        <div>
+                                            <h4 class="font-bold text-primary">Alejandro Morales</h4>
+                                            <p class="text-gray-500">Miembro anual · Renovó por segundo año</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Controls -->
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md z-10 focus:outline-none testimonial-prev">
+                    <i class="fas fa-chevron-left text-primary"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md z-10 focus:outline-none testimonial-next">
+                    <i class="fas fa-chevron-right text-primary"></i>
+                </button>
+                
+                <!-- Carousel Indicators -->
+                <div class="flex justify-center mt-8 testimonial-indicators space-x-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-serif font-bold mb-6">Únete a Nuestra Comunidad</h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">Comienza a disfrutar de beneficios exclusivos y experiencias únicas como miembro de MultiEspacio.</p>
+            <a href="contacto.html" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg inline-block">Solicitar Membresía</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1: Logo & About -->
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-serif font-bold text-secondary mb-4">MultiEspacio</h3>
+                    <p class="mb-4">Un ecosistema de oportunidades en el corazón de Junín, Argentina.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Inicio</a></li>
+                        <li><a href="espacios.html" class="text-gray-300 hover:text-white">Espacios</a></li>
+                        <li><a href="servicios.html" class="text-gray-300 hover:text-white">Servicios</a></li>
+                        <li><a href="membresia.html" class="text-gray-300 hover:text-white">Membresía</a></li>
+                        <li><a href="ubicacion.html" class="text-gray-300 hover:text-white">Ubicación</a></li>
+                        <li><a href="contacto.html" class="text-gray-300 hover:text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Info -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>MultiEspacio, Junín, Argentina</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-2"></i>
+                            <span>+54 9 11 3579-4894</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <div class="flex flex-col">
+                                <span class="text-sm">marialaurasandoval@gmail.com</span>
+                                <span class="text-sm">cdscapitolio01@outlook.com</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Newsletter -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Mantente Informado</h4>
+                    <p class="mb-4">Suscríbete para recibir las últimas novedades y eventos.</p>
+                    <form class="space-y-2">
+                        <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-2 rounded-md text-dark">
+                        <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-dark font-bold py-2 px-4 rounded-md transition duration-300">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center">
+                <p>&copy; 2025 MultiEspacio. Todos los derechos reservados.</p>
+                <p class="mt-2 text-sm text-gray-400">Diseñado con pasión para crear experiencias extraordinarias.</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <p class="text-gray-300 font-medium">Desarrollo Comercial por María Laura Sandoval</p>
+                    <p class="text-gray-400 text-sm mt-1">Desarrollos comerciales para inversionistas creando vínculos con las regiones</p>
+                    <a href="https://wa.me/5491135794894" target="_blank" class="inline-flex items-center mt-2 text-pink-400 hover:text-pink-300">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i>
+                        <span>+54 9 11 3579-4894</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    <!-- JavaScript para las pestañas de membresía y carrusel de testimonios -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== Sistema de pestañas =====
+            const tabs = document.querySelectorAll('.membership-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Verificar si hay un hash en la URL para activar una pestaña específica
+            function checkUrlHash() {
+                const hash = window.location.hash.substring(1); // Eliminar el símbolo #
+                if(hash === 'membresias-temporales') {
+                    // Activar la pestaña de membresías temporales
+                    changeTab('temporales');
+                    // Desplazarse suavemente hasta la sección
+                    const temporalesTab = document.getElementById('temporales-tab');
+                    if(temporalesTab) {
+                        setTimeout(() => {
+                            temporalesTab.scrollIntoView({behavior: 'smooth'});
+                        }, 300);
+                    }
+                }
+            }
+            
+            // Función para cambiar de pestaña
+            function changeTab(tabId) {
+                // Ocultar todos los contenidos
+                tabContents.forEach(content => {
+                    content.style.display = 'none';
+                    content.classList.add('hidden');
+                    content.classList.remove('block');
+                });
+                
+                // Eliminar clase activa de todas las pestañas
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                    tab.classList.remove('bg-primary');
+                    tab.classList.remove('text-white');
+                    tab.classList.add('bg-gray-200');
+                    tab.classList.add('text-gray-700');
+                });
+                
+                // Mostrar el contenido seleccionado
+                document.getElementById(tabId + '-tab').style.display = 'block';
+                document.getElementById(tabId + '-tab').classList.remove('hidden');
+                document.getElementById(tabId + '-tab').classList.add('block');
+                
+                // Marcar la pestaña como activa
+                document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+                document.querySelector(`[data-tab="${tabId}"]`).classList.add('bg-primary');
+                document.querySelector(`[data-tab="${tabId}"]`).classList.add('text-white');
+                document.querySelector(`[data-tab="${tabId}"]`).classList.remove('bg-gray-200');
+                document.querySelector(`[data-tab="${tabId}"]`).classList.remove('text-gray-700');
+            }
+            
+            // Agregar eventos de clic a las pestañas
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    changeTab(this.getAttribute('data-tab'));
+                });
+            });
+            
+            // Verificar el hash al cargar la página
+            checkUrlHash();
+            
+            // Escuchar cambios en el hash de la URL
+            window.addEventListener('hashchange', checkUrlHash);
+            
+            // ===== Carrusel de testimonios =====
+            const carousel = document.querySelector('.testimonial-carousel');
+            const track = document.querySelector('.testimonial-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevButton = document.querySelector('.testimonial-prev');
+            const nextButton = document.querySelector('.testimonial-next');
+            const indicatorsContainer = document.querySelector('.testimonial-indicators');
+            
+            if (carousel && track && slides.length > 0) {
+                let currentIndex = 0;
+                const slideWidth = 100; // 100% del ancho
+                const totalSlides = slides.length;
+                
+                // Configuración inicial
+                function initCarousel() {
+                    // Crear indicadores
+                    for (let i = 0; i < totalSlides; i++) {
+                        const dot = document.createElement('button');
+                        dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-gray-300');
+                        dot.setAttribute('data-index', i);
+                        if (i === 0) dot.classList.add('bg-primary');
+                        dot.addEventListener('click', () => goToSlide(i));
+                        indicatorsContainer.appendChild(dot);
+                    }
+                    
+                    // Posicionar el track inicialmente
+                    updateCarousel();
+                }
+                
+                // Actualizar el carrusel
+                function updateCarousel() {
+                    // Mover el track
+                    track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+                    
+                    // Actualizar indicadores
+                    const indicators = indicatorsContainer.querySelectorAll('button');
+                    indicators.forEach((dot, index) => {
+                        if (index === currentIndex) {
+                            dot.classList.add('bg-primary');
+                            dot.classList.remove('bg-gray-300');
+                        } else {
+                            dot.classList.remove('bg-primary');
+                            dot.classList.add('bg-gray-300');
+                        }
+                    });
+                }
+                
+                // Ir a una diapositiva específica
+                function goToSlide(index) {
+                    if (index < 0) {
+                        currentIndex = totalSlides - 1;
+                    } else if (index >= totalSlides) {
+                        currentIndex = 0;
+                    } else {
+                        currentIndex = index;
+                    }
+                    updateCarousel();
+                }
+                
+                // Eventos de botón
+                prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
+                nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
+                
+                // Auto-reproducción
+                let autoplayInterval = setInterval(() => goToSlide(currentIndex + 1), 7000);
+                
+                // Pausar auto-reproducción al interactuar manualmente
+                carousel.addEventListener('mouseover', () => clearInterval(autoplayInterval));
+                carousel.addEventListener('mouseout', () => {
+                    autoplayInterval = setInterval(() => goToSlide(currentIndex + 1), 7000);
+                });
+                
+                // Inicializar el carrusel
+                initCarousel();
+            }
+            
+            // Script para el menú móvil
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

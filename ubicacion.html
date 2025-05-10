@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación - MultiEspacio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',    /* Azul oscuro */
+                        secondary: '#F97316',  /* Naranja */
+                        primaryLight: '#3B82F6', /* Azul más claro */
+                        secondaryLight: '#FDBA74', /* Naranja más claro */
+                        gradient: {
+                            start: '#1E3A8A',
+                            mid: '#3B82F6',
+                            end: '#F97316'
+                        },
+                        light: '#F0F9FF',
+                        dark: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
+                        'gradient-secondary': 'linear-gradient(135deg, #F97316 0%, #FDBA74 100%)',
+                        'gradient-blend': 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #F97316 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="font-sans text-dark bg-light">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-serif font-bold text-primary">MultiEspacio</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-dark hover:text-primary font-medium">Inicio</a>
+                    <a href="espacios.html" class="text-dark hover:text-primary font-medium">Espacios</a>
+                    <a href="servicios.html" class="text-dark hover:text-primary font-medium">Servicios</a>
+                    <a href="membresia.html" class="text-dark hover:text-primary font-medium">Membresía</a>
+                    <a href="ubicacion.html" class="text-dark hover:text-primary font-medium font-bold border-b-2 border-primary">Ubicación</a>
+                    <a href="contacto.html" class="text-dark hover:text-primary font-medium">Contacto</a>
+                </div>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button id="mobile-menu-button" class="md:hidden text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-dark hover:text-primary font-medium">Inicio</a>
+                    <a href="espacios.html" class="text-dark hover:text-primary font-medium">Espacios</a>
+                    <a href="servicios.html" class="text-dark hover:text-primary font-medium">Servicios</a>
+                    <a href="membresia.html" class="text-dark hover:text-primary font-medium">Membresía</a>
+                    <a href="ubicacion.html" class="text-dark hover:text-primary font-medium font-bold">Ubicación</a>
+                    <a href="contacto.html" class="text-dark hover:text-primary font-medium">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="relative pt-32 pb-20 bg-gradient-blend">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl font-serif font-bold mb-6">Ubicación Estratégica</h1>
+            <p class="text-xl max-w-3xl mx-auto">En el corazón de Junín, perfectamente conectado con los principales puntos de interés de la ciudad.</p>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-primary mb-6">Encuéntranos</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8">Ubicados estratégicamente en el centro de Junín, somos de fácil acceso para residentes y visitantes.</p>
+                <a href="https://maps.app.goo.gl/xDFGSV1LYtPsND549" target="_blank" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                    <i class="fas fa-external-link-alt mr-2"></i>
+                    Ver en Google Maps
+                </a>
+            </div>
+            
+            <!-- Google Maps Integration -->
+            <div class="rounded-lg shadow-md overflow-hidden mb-12">
+                <div class="h-96 w-full">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13100.30868272472!2d-60.95820867068905!3d-34.58481799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b8bd6c14ae5e59%3A0x9a2e9ae6c0377e72!2zSnVuw61uLCBQcm92aW5jaWEgZGUgQnVlbm9zIEFpcmVzLCBBcmdlbnRpbmE!5e0!3m2!1ses!2sar!4v1714397626761!5m2!1ses!2sar" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="bg-primary/10 p-4 text-center">
+                    <p class="text-primary font-medium">MultiEspacio - Corazón de Junín, Buenos Aires, Argentina</p>
+                    <a href="https://maps.app.goo.gl/xDFGSV1LYtPsND549" target="_blank" class="text-sm text-primary/80 hover:text-primary underline">Ver ruta en Google Maps</a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-6">Dirección y Contacto</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <p class="font-bold">MultiEspacio, Junín, Argentina</p>
+                                <p class="text-gray-600">Calle Principal 123, Junín, Buenos Aires</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-primary mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <p class="font-bold">Teléfono</p>
+                                <p class="text-gray-600">+54 236 123 4567</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <p class="font-bold">Email</p>
+                                <p class="text-gray-600">info@multiespacio.com</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-primary mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <p class="font-bold">Horario de Atención</p>
+                                <p class="text-gray-600">Lunes a Sábado: 10:00 - 22:00</p>
+                                <p class="text-gray-600">Domingos y Feriados: 12:00 - 20:00</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-6">Puntos de Referencia Cercanos</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="bg-primary/10 p-2 rounded-full mr-4">
+                                <i class="fas fa-university text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">UNNOBA</p>
+                                <p class="text-gray-600">A solo 20 metros del campus universitario</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-primary/10 p-2 rounded-full mr-4">
+                                <i class="fas fa-train text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">Estación de Tren</p>
+                                <p class="text-gray-600">A 100 metros de la estación principal</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-primary/10 p-2 rounded-full mr-4">
+                                <i class="fas fa-bus text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">Terminal de Autobuses</p>
+                                <p class="text-gray-600">A 200 metros de la terminal "Colectivos"</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-primary/10 p-2 rounded-full mr-4">
+                                <i class="fas fa-monument text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">Plaza Principal</p>
+                                <p class="text-gray-600">A 6 cuadras de la plaza central</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-primary/10 p-2 rounded-full mr-4">
+                                <i class="fas fa-road text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">Boulevard Av. San Martín</p>
+                                <p class="text-gray-600">A 200 metros de la avenida principal</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parking Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-primary mb-6">Estacionamiento Amplio</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">Ofrecemos facilidades de estacionamiento para garantizar una visita cómoda y sin complicaciones.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="rounded-lg shadow-md overflow-hidden relative">
+                    <video src="imagenes/estacionamiento.mp4" autoplay loop muted class="w-full h-80 object-cover" alt="Video del estacionamiento con estaciones de carga para vehículos eléctricos"></video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none"></div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-6">Comodidad para Todos</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-bold">140 Espacios para Vehículos</p>
+                                <p class="text-gray-600">Amplio estacionamiento para visitantes y clientes</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-bold">Estaciones de Carga Eléctrica</p>
+                                <p class="text-gray-600">Infraestructura para vehículos eléctricos</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-bold">Espacios Reservados</p>
+                                <p class="text-gray-600">Plazas designadas para personas con movilidad reducida</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-bold">Seguridad 24/7</p>
+                                <p class="text-gray-600">Vigilancia constante en toda el área de estacionamiento</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Area Details -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-primary mb-6">Detalles del Área</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">Un espacio diseñado para maximizar el valor por metro cuadrado y crear experiencias memorables.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-light p-8 rounded-lg shadow-md text-center">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-expand-arrows-alt text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">+10,000 m²</h3>
+                    <p class="text-gray-600">Área total del complejo</p>
+                </div>
+                
+                <div class="bg-light p-8 rounded-lg shadow-md text-center">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-store text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">+4,800 m²</h3>
+                    <p class="text-gray-600">Área disponible para subarrendar</p>
+                </div>
+                
+                <div class="bg-light p-8 rounded-lg shadow-md text-center">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">438,000+</h3>
+                    <p class="text-gray-600">Visitas anuales estimadas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-serif font-bold mb-6">¿Listo para Visitarnos?</h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">Agenda una visita guiada para conocer nuestras instalaciones y descubrir todas las oportunidades que MultiEspacio tiene para ofrecer.</p>
+            <a href="contacto.html" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg inline-block">Agendar Visita</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1: Logo & About -->
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-serif font-bold text-secondary mb-4">MultiEspacio</h3>
+                    <p class="mb-4">Un ecosistema de oportunidades en el corazón de Junín, Argentina.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Inicio</a></li>
+                        <li><a href="espacios.html" class="text-gray-300 hover:text-white">Espacios</a></li>
+                        <li><a href="servicios.html" class="text-gray-300 hover:text-white">Servicios</a></li>
+                        <li><a href="membresia.html" class="text-gray-300 hover:text-white">Membresía</a></li>
+                        <li><a href="ubicacion.html" class="text-gray-300 hover:text-white">Ubicación</a></li>
+                        <li><a href="contacto.html" class="text-gray-300 hover:text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Info -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>MultiEspacio, Junín, Argentina</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-2"></i>
+                            <span>+54 9 11 3579-4894</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <div class="flex flex-col">
+                                <span class="text-sm">marialaurasandoval@gmail.com</span>
+                                <span class="text-sm">cdscapitolio01@outlook.com</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Newsletter -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Mantente Informado</h4>
+                    <p class="mb-4">Suscríbete para recibir las últimas novedades y eventos.</p>
+                    <form class="space-y-2">
+                        <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-2 rounded-md text-dark">
+                        <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-dark font-bold py-2 px-4 rounded-md transition duration-300">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center">
+                <p>&copy; 2025 MultiEspacio. Todos los derechos reservados.</p>
+                <p class="mt-2 text-sm text-gray-400">Diseñado con pasión para crear experiencias extraordinarias.</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <p class="text-gray-300 font-medium">Desarrollo Comercial por María Laura Sandoval</p>
+                    <p class="text-gray-400 text-sm mt-1">Desarrollos comerciales para inversionistas, creando vínculos con las regiones</p>
+                    <a href="https://wa.me/5491135794894" target="_blank" class="inline-flex items-center mt-2 text-pink-400 hover:text-pink-300">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i>
+                        <span>+54 9 11 3579-4894</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

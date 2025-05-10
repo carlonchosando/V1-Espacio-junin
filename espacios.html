@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacios - MultiEspacio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',    /* Azul oscuro */
+                        secondary: '#F97316',  /* Naranja */
+                        primaryLight: '#3B82F6', /* Azul más claro */
+                        secondaryLight: '#FDBA74', /* Naranja más claro */
+                        gradient: {
+                            start: '#1E3A8A',
+                            mid: '#3B82F6',
+                            end: '#F97316'
+                        },
+                        light: '#F0F9FF',
+                        dark: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
+                        'gradient-secondary': 'linear-gradient(135deg, #F97316 0%, #FDBA74 100%)',
+                        'gradient-blend': 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #F97316 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="font-sans text-dark bg-light">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-serif font-bold text-primary">MultiEspacio</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-dark hover:text-primary font-medium">Inicio</a>
+                    <a href="espacios.html" class="text-dark hover:text-primary font-medium font-bold border-b-2 border-primary">Espacios</a>
+                    <a href="servicios.html" class="text-dark hover:text-primary font-medium">Servicios</a>
+                    <a href="membresia.html" class="text-dark hover:text-primary font-medium">Membresía</a>
+                    <a href="ubicacion.html" class="text-dark hover:text-primary font-medium">Ubicación</a>
+                    <a href="contacto.html" class="text-dark hover:text-primary font-medium">Contacto</a>
+                </div>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button id="mobile-menu-button" class="md:hidden text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-dark hover:text-primary font-medium">Inicio</a>
+                    <a href="espacios.html" class="text-dark hover:text-primary font-medium font-bold">Espacios</a>
+                    <a href="servicios.html" class="text-dark hover:text-primary font-medium">Servicios</a>
+                    <a href="membresia.html" class="text-dark hover:text-primary font-medium">Membresía</a>
+                    <a href="ubicacion.html" class="text-dark hover:text-primary font-medium">Ubicación</a>
+                    <a href="contacto.html" class="text-dark hover:text-primary font-medium">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="relative pt-32 pb-20 bg-gradient-blend">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl font-serif font-bold mb-6">Espacios a tu Medida</h1>
+            <p class="text-xl max-w-3xl mx-auto">Descubre el escenario perfecto para tu marca o negocio en nuestro ecosistema de oportunidades.</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Elige el Escenario Perfecto para tu Concepto</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-12">En MultiEspacio, ofrecemos una variedad de espacios diseñados para maximizar el valor de tu marca y crear experiencias memorables para tus clientes.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-xl border border-primary/10 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/30">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/30 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i class="fas fa-ruler-combined text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">+4,800 m²</h3>
+                    <p class="text-gray-600">Area disponible para subarrendar</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-xl border border-primary/10 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/30">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/30 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i class="fas fa-store-alt text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">Múltiples Formatos</h3>
+                    <p class="text-gray-600">Desde tiendas premium hasta espacios pop-up</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-xl border border-primary/10 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-primary/30">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/30 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i class="fas fa-users text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">438,000+</h3>
+                    <p class="text-gray-600">Visitas anuales estimadas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spaces Showcase -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-primary mb-4">Nuestros Espacios</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+            </div>
+            
+            <!-- Premium Stores -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h3 class="text-3xl font-serif font-bold text-primary mb-4">Tiendas Premium</h3>
+                        <p class="text-xl text-gray-600 mb-6">Espacios de 40-100 m² listos para la activación inmediata de tu marca. Diseñados para ofrecer la máxima visibilidad y experiencia de compra.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Ubicaciones estratégicas con alto tráfico de visitantes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Acabados de alta calidad y diseño moderno</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Flexibilidad para personalizar según la identidad de tu marca</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Acceso a todos los servicios 5 estrellas del centro</span>
+                            </li>
+                        </ul>
+                        <a href="contacto.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Consultar Disponibilidad</a>
+                    </div>
+                    <div class="order-1 lg:order-2 h-80 rounded-lg overflow-hidden shadow-lg relative">
+                        <video src="imagenes/tiendas.mp4" autoplay loop muted class="w-full h-full object-cover" alt="Video de Tiendas Premium"></video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gastronomic Patio -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 lg:order-2">
+                        <h3 class="text-3xl font-serif font-bold text-primary mb-4">Patio Gastronómico Multicultural</h3>
+                        <p class="text-xl text-gray-600 mb-6">Un espacio vibrante con 20 "cocinas de autor" que aseguran un flujo constante de visitantes, creando una experiencia culinaria única.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Espacios diseñados específicamente para conceptos gastronómicos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Áreas comunes de comedor con diseño atractivo y funcional</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Instalaciones adaptadas a las necesidades específicas de restauración</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Oportunidad para formar parte de eventos gastronómicos exclusivos</span>
+                            </li>
+                        </ul>
+                        <a href="contacto.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Consultar Disponibilidad</a>
+                    </div>
+                    <div class="order-1 lg:order-1 h-80 rounded-lg overflow-hidden shadow-lg">
+                        <img src="imagenes/gastronomia.jpeg" alt="Patio Gastronómico Multicultural" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pop-up & Food Truck Zones -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h3 class="text-3xl font-serif font-bold text-primary mb-4">Zonas Pop-up & Food-Rest</h3>
+                        <p class="text-xl text-gray-600 mb-6">Espacios flexibles para lanzamientos express y conceptos temporales, ideales para probar nuevas ideas o productos de temporada.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Flexibilidad total en términos de tiempo y espacio</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Infraestructura básica lista para usar</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Oportunidad de participar en eventos especiales y temporadas altas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Ideal para marcas emergentes o pruebas de concepto</span>
+                            </li>
+                        </ul>
+                        <a href="contacto.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Consultar Disponibilidad</a>
+                    </div>
+                    <div class="order-1 lg:order-2 h-80 rounded-lg overflow-hidden shadow-lg">
+                        <img src="imagenes/concepto-exterior-patio-comida.jpeg" alt="Zona Pop-up & Food-Rest" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Showrooms & Activation Rooms -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 lg:order-2">
+                        <h3 class="text-3xl font-serif font-bold text-primary mb-4">Showrooms & Salas de Activación</h3>
+                        <p class="text-xl text-gray-600 mb-6">Espacios diseñados para crear experiencias inmersivas para tu marca, perfectos para presentaciones, eventos y activaciones especiales.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Espacios versátiles adaptables a diferentes necesidades</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Tecnología audiovisual de última generación</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Posibilidad de personalización completa del espacio</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Ideal para lanzamientos de productos o experiencias de marca</span>
+                            </li>
+                        </ul>
+                        <a href="contacto.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Consultar Disponibilidad</a>
+                    </div>
+                    <div class="order-1 lg:order-1 h-80 rounded-lg overflow-hidden shadow-lg">
+                        <img src="imagenes/showroomysalas.jpeg" alt="Showroom y Salas de Activación" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Outdoor Amphitheater -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h3 class="text-3xl font-serif font-bold text-primary mb-4">Anfiteatro al Aire Libre</h3>
+                        <p class="text-xl text-gray-600 mb-6">Un espacio icónico para charlas, conciertos íntimos o ferias, creando un punto focal para eventos especiales y actividades culturales.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Diseño arquitectónico único que atrae visitantes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Capacidad para diferentes tipos de eventos y audiencias</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Infraestructura técnica para sonido e iluminación</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Espacio versátil para eventos corporativos o culturales</span>
+                            </li>
+                        </ul>
+                        <a href="contacto.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Consultar Disponibilidad</a>
+                    </div>
+                    <div class="order-1 lg:order-2 h-80 rounded-lg overflow-hidden shadow-lg">
+                        <img src="imagenes/concepto-anfiteatro.png" alt="Anfiteatro al Aire Libre" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wellness & Spa Areas -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 lg:order-2">
+                        <h3 class="text-3xl font-serif font-bold text-primary mb-4">Áreas de Wellness & Spa</h3>
+                        <p class="text-xl text-gray-600 mb-6">Complemento de alto valor para convertir visitantes en fans, ofreciendo experiencias de bienestar y relajación en un entorno premium.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Espacios diseñados para servicios de bienestar y relajación</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Ambiente tranquilo y sofisticado</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Instalaciones especializadas según el tipo de servicio</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span class="text-gray-700">Clientela de alto valor adquisitivo</span>
+                            </li>
+                        </ul>
+                        <a href="contacto.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Consultar Disponibilidad</a>
+                    </div>
+                    <div class="order-1 lg:order-1 h-80 grid grid-cols-2 gap-4">
+                        <!-- Primera imagen (original spa) -->
+                        <div class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="imagenes/concepto-spa.jpeg" alt="Área Wellness" class="w-full h-full object-cover">
+                        </div>
+                        <!-- Segunda imagen (wellness) -->
+                        <div class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="imagenes/wellness.jpeg" alt="Espacio Wellness" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Espacio 4 -->
+            <div class="bg-light p-6 rounded-lg shadow-md text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6 text-white">
+                    <i class="fas fa-leaf text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-primary mb-2">Espacios Verdes</h3>
+                <div class="relative w-full h-48 rounded-lg mb-4 overflow-hidden shadow-lg">
+                    <video src="imagenes/verde2.mp4" autoplay loop muted class="w-full h-full object-cover" alt="Video de parque y espacios verdes"></video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none"></div>
+                </div>
+                <p class="text-gray-600 mb-4">Áreas al aire libre diseñadas para la relajación y el disfrute de toda la familia, integrando naturaleza y comunidad.</p>
+                <a href="contacto.html" class="text-primary hover:text-primary/80 font-medium">Más Información <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-serif font-bold mb-6">¿Listo para Formar Parte de Nuestra Comunidad?</h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">Contacta con nuestro equipo para obtener más información sobre disponibilidad, precios y cómo tu marca puede brillar en MultiEspacio.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="contacto.html" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Contactar Ahora</a>
+                <a href="membresia.html" class="bg-transparent hover:bg-white/10 text-white border-2 border-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg">Conocer Membresía</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1: Logo & About -->
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-serif font-bold text-secondary mb-4">MultiEspacio</h3>
+                    <p class="mb-4">Un ecosistema de oportunidades en el corazón de Junín, Argentina.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Inicio</a></li>
+                        <li><a href="espacios.html" class="text-gray-300 hover:text-white">Espacios</a></li>
+                        <li><a href="servicios.html" class="text-gray-300 hover:text-white">Servicios</a></li>
+                        <li><a href="membresia.html" class="text-gray-300 hover:text-white">Membresía</a></li>
+                        <li><a href="ubicacion.html" class="text-gray-300 hover:text-white">Ubicación</a></li>
+                        <li><a href="contacto.html" class="text-gray-300 hover:text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Info -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>MultiEspacio, Junín, Argentina</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-2"></i>
+                            <span>+54 9 11 3579-4894</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <div class="flex flex-col">
+                                <span class="text-sm">marialaurasandoval@gmail.com</span>
+                                <span class="text-sm">cdscapitolio01@outlook.com</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Newsletter -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Mantente Informado</h4>
+                    <p class="mb-4">Suscríbete para recibir las últimas novedades y eventos.</p>
+                    <form class="space-y-2">
+                        <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-2 rounded-md text-dark">
+                        <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-dark font-bold py-2 px-4 rounded-md transition duration-300">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center">
+                <p>&copy; 2025 MultiEspacio. Todos los derechos reservados.</p>
+                <p class="mt-2 text-sm text-gray-400">Diseñado con pasión para crear experiencias extraordinarias.</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <p class="text-gray-300 font-medium">Desarrollo Comercial por María Laura Sandoval</p>
+                    <p class="text-gray-400 text-sm mt-1">Desarrollos comerciales para inversionistas, creando vínculos con las regiones</p>
+                    <a href="https://wa.me/5491135794894" target="_blank" class="inline-flex items-center mt-2 text-pink-400 hover:text-pink-300">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i>
+                        <span>+54 9 11 3579-4894</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

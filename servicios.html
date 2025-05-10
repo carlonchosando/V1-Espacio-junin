@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios 5 Estrellas - MultiEspacio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',    /* Azul oscuro */
+                        secondary: '#F97316',  /* Naranja */
+                        primaryLight: '#3B82F6', /* Azul más claro */
+                        secondaryLight: '#FDBA74', /* Naranja más claro */
+                        gradient: {
+                            start: '#1E3A8A',
+                            mid: '#3B82F6',
+                            end: '#F97316'
+                        },
+                        light: '#F0F9FF',
+                        dark: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
+                        'gradient-secondary': 'linear-gradient(135deg, #F97316 0%, #FDBA74 100%)',
+                        'gradient-blend': 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #F97316 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="font-sans text-dark bg-light">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-serif font-bold text-primary">MultiEspacio</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-dark hover:text-primary font-medium">Inicio</a>
+                    <a href="espacios.html" class="text-dark hover:text-primary font-medium">Espacios</a>
+                    <a href="servicios.html" class="text-dark hover:text-primary font-medium font-bold border-b-2 border-primary">Servicios</a>
+                    <a href="membresia.html" class="text-dark hover:text-primary font-medium">Membresía</a>
+                    <a href="ubicacion.html" class="text-dark hover:text-primary font-medium">Ubicación</a>
+                    <a href="contacto.html" class="text-dark hover:text-primary font-medium">Contacto</a>
+                </div>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button id="mobile-menu-button" class="md:hidden text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-dark hover:text-primary font-medium">Inicio</a>
+                    <a href="espacios.html" class="text-dark hover:text-primary font-medium">Espacios</a>
+                    <a href="servicios.html" class="text-dark hover:text-primary font-medium font-bold">Servicios</a>
+                    <a href="membresia.html" class="text-dark hover:text-primary font-medium">Membresía</a>
+                    <a href="ubicacion.html" class="text-dark hover:text-primary font-medium">Ubicación</a>
+                    <a href="contacto.html" class="text-dark hover:text-primary font-medium">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="relative pt-32 pb-20 bg-gradient-blend">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl font-serif font-bold mb-6">Servicio 5 Estrellas</h1>
+            <p class="text-xl max-w-3xl mx-auto">Una experiencia VIP para cada visitante y un entorno premium para cada marca.</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Elevando el Estándar</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-12">En MultiEspacio, no solo ofrecemos espacios, sino una experiencia completa de servicio 5 estrellas que diferencia a nuestro ecosistema de cualquier otro centro comercial tradicional.</p>
+            
+            <div class="flex justify-center">
+                <div class="bg-light p-8 rounded-lg shadow-lg text-center max-w-2xl">
+                    <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-star text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Compromiso con la Excelencia</h3>
+                    <p class="text-gray-600">Cada aspecto de nuestro servicio está diseñado para superar expectativas, creando un entorno donde las marcas brillan y los visitantes disfrutan de experiencias memorables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Showcase -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-primary mb-4">Nuestros Servicios Premium</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- International Hospitality -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary/10 p-4 rounded-full mr-6">
+                            <i class="fas fa-concierge-bell text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-primary">Hospitalidad Internacional</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Nuestro personal multilingüe está capacitado en protocolos de lujo para ofrecer una atención personalizada de nivel internacional.</p>
+                    <div class="h-48 rounded-lg overflow-hidden shadow-lg mb-6">
+                        <img src="imagenes/international.png" alt="Hospitalidad Internacional" class="w-full h-full object-cover">
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Personal capacitado en múltiples idiomas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Protocolos de atención de nivel internacional</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Servicio personalizado para cada visitante</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Asistencia especial para eventos y actividades</span>
+                        </li>
+                    </ul>
+                </div>
+                
+
+                
+                <!-- Intelligent Security -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary/10 p-4 rounded-full mr-6">
+                            <i class="fas fa-shield-alt text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-primary">Seguridad Inteligente</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Sistema de monitoreo proactivo y asistencia inmediata que garantiza un entorno seguro para visitantes, marcas y colaboradores.</p>
+                    <div class="h-48 rounded-lg overflow-hidden shadow-lg mb-6">
+                        <img src="imagenes/vigilancia.png" alt="Seguridad Inteligente" class="w-full h-full object-cover">
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Sistemas de vigilancia de última generación</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Personal de seguridad altamente capacitado</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Monitoreo 24/7 de todas las áreas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Protocolos de respuesta rápida ante cualquier situación</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Accesibilidad Universal - Full Width -->
+            <div class="mt-16">
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary/10 p-4 rounded-full mr-6">
+                            <i class="fas fa-universal-access text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-primary">Accesibilidad Universal</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">El MultiEspacio fue creado para que todas las familias puedan disfrutar de él en absoluta comodidad, incorporando herramientas físicas y servicios inclusivos para todos.</p>
+                    <div class="h-96 rounded-lg overflow-hidden shadow-lg mb-6 relative">
+                        <video src="imagenes/accesibilidad.mp4" autoplay loop muted class="w-full h-full object-cover" alt="Video de Accesibilidad Universal"></video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none"></div>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Auriculares especiales para personas autistas y no videntes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Tablets con sistema de imágenes para personas no hablantes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Personal capacitado en lenguaje de señas en ambos ingresos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Guías en relieve y señalización en braille para no videntes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Triciclos eléctricos para personas con movilidad reducida</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Salas de silencio acustizadas para personas autistas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-700">Estacionamientos especiales para movilidad reducida y embarazadas</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-primary mb-4">Lo Que Dicen Nuestros Socios</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">Descubre por qué las marcas eligen MultiEspacio como su escenario preferido.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-light p-8 rounded-lg shadow-md">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-gray-300 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-4xl text-gray-600"></i>
+                        </div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <div class="flex justify-center text-secondary mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-primary">María González</h4>
+                        <p class="text-gray-500">Propietaria, Café Esencia</p>
+                    </div>
+                    <p class="text-gray-600 italic">"El nivel de servicio que ofrece MultiEspacio ha transformado nuestra experiencia como marca. El flujo constante de visitantes y la atención a los detalles nos ha permitido crecer más allá de nuestras expectativas."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-light p-8 rounded-lg shadow-md">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-gray-300 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-4xl text-gray-600"></i>
+                        </div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <div class="flex justify-center text-secondary mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-primary">Carlos Rodríguez</h4>
+                        <p class="text-gray-500">Director, Moda Urbana</p>
+                    </div>
+                    <p class="text-gray-600 italic">"La diferencia entre MultiEspacio y otros espacios comerciales es notable desde el primer día. El enfoque en la experiencia y el servicio 5 estrellas ha elevado el valor percibido de nuestra marca."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-light p-8 rounded-lg shadow-md">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-gray-300 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-4xl text-gray-600"></i>
+                        </div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <div class="flex justify-center text-secondary mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-primary">Laura Méndez</h4>
+                        <p class="text-gray-500">Fundadora, Wellness Center</p>
+                    </div>
+                    <p class="text-gray-600 italic">"La seguridad, limpieza y atención al detalle que ofrece MultiEspacio es exactamente lo que buscábamos para nuestro centro de bienestar. Nuestros clientes valoran enormemente el entorno premium."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-gradient-blend text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold mb-4">¿Por Qué Elegirnos?</h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-8"></div>
+                <p class="text-xl max-w-4xl mx-auto">Mientras la competencia se conforma con lo básico, nosotros elevamos cada aspecto de la experiencia.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/20 p-8 rounded-lg text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-white/30 border border-white/30">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-secondary/70 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-theater-masks text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Experiencia vs. Exhibición</h3>
+                    <p class="text-white/90">Mientras otros ofrecen simples exhibiciones estáticas, nosotros creamos experiencias completas que conectan emocionalmente con los visitantes.</p>
+                </div>
+                
+                <div class="bg-white/20 p-8 rounded-lg text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-white/30 border border-white/30">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-secondary/70 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-heart text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Emociones vs. Transacciones</h3>
+                    <p class="text-white/90">El cliente moderno busca emociones, no simples transacciones. Nuestro ecosistema está diseñado para crear recuerdos que perduran.</p>
+                </div>
+                
+                <div class="bg-white/20 p-8 rounded-lg text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-white/30 border border-white/30">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-secondary/70 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-crown text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Nivel Superior</h3>
+                    <p class="text-white/90">Nuestro servicio 5 estrellas y ecosistema integrado elevan cualquier marca a un nivel superior, diferenciándola de la competencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Experimenta la Diferencia</h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">Descubre cómo nuestro servicio 5 estrellas puede transformar la experiencia de tu marca y tus clientes.</p>
+            <a href="contacto.html" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg inline-block">Agenda una Visita</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1: Logo & About -->
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-serif font-bold text-secondary mb-4">MultiEspacio</h3>
+                    <p class="mb-4">Un ecosistema de oportunidades en el corazón de Junín, Argentina.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Inicio</a></li>
+                        <li><a href="espacios.html" class="text-gray-300 hover:text-white">Espacios</a></li>
+                        <li><a href="servicios.html" class="text-gray-300 hover:text-white">Servicios</a></li>
+                        <li><a href="membresia.html" class="text-gray-300 hover:text-white">Membresía</a></li>
+                        <li><a href="ubicacion.html" class="text-gray-300 hover:text-white">Ubicación</a></li>
+                        <li><a href="contacto.html" class="text-gray-300 hover:text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Info -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>MultiEspacio, Junín, Argentina</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-2"></i>
+                            <span>+54 9 11 3579-4894</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <div class="flex flex-col">
+                                <span class="text-sm">marialaurasandoval@gmail.com</span>
+                                <span class="text-sm">cdscapitolio01@outlook.com</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Newsletter -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-bold mb-4">Mantente Informado</h4>
+                    <p class="mb-4">Suscríbete para recibir las últimas novedades y eventos.</p>
+                    <form class="space-y-2">
+                        <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-2 rounded-md text-dark">
+                        <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-dark font-bold py-2 px-4 rounded-md transition duration-300">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center">
+                <p>&copy; 2025 MultiEspacio. Todos los derechos reservados.</p>
+                <p class="mt-2 text-sm text-gray-400">Diseñado con pasión para crear experiencias extraordinarias.</p>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <p class="text-gray-300 font-medium">Desarrollo Comercial por María Laura Sandoval</p>
+                    <p class="text-gray-400 text-sm mt-1">Desarrollos comerciales para inversionistas, creando vínculos con las regiones</p>
+                    <a href="https://wa.me/5491135794894" target="_blank" class="inline-flex items-center mt-2 text-pink-400 hover:text-pink-300">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i>
+                        <span>+54 9 11 3579-4894</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
